@@ -14,11 +14,12 @@ require 'pathname'
 require 'pg'
 require 'active_record'
 require 'logger'
-require 'csv'
 require 'sinatra'
 require "sinatra/reloader" if development?
 require 'pry'
 require 'erb'
+
+require 'csv'
 require 'nokogiri'
 require 'open-uri'
 

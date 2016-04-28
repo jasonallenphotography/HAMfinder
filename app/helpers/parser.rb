@@ -1,43 +1,41 @@
 def create_csv_from_url(url)
 
-require 'rubygems'
-require 'nokogiri'
-require 'csv'
+  doc = Nokogiri::HTML(open("#{url}"))
 
-doc = Nokogiri::HTML(open("#{url}"))
+  CSV.open("output.csv", 'w', {col_sep: ","}) do |csv|
 
-csv = CSV.open("/tmp/output.csv", 'w',{:col_sep => ",", :quote_char => '\'', :force_quotes => true})
-#doc.xpath('//table/tbody/tr').take(10).each do |row|
-doc.xpath('//table/tbody/tr').each do |row|
-binding.pry
-  tarray = []
-  row.xpath('td').each do |cell|
-    tarray << cell.text
+    doc.xpath('//table').each do |table|
+      th_array = []
+        table.xpath('th').each do |th|
+          th_array << th.text
+        end
+        csv << th_array
+      end
+
+    all_cells = doc.xpath('//table/td').map {|content| content.text }
+
+    all_cells.each do |cell|
+      cell.strip!
+      cell.delete!(" ")
+    end
+
+    until all_cells.empty?
+      row_array = []
+      row = all_cells.shift(6)
+        row.each do |cell|
+          row_array << cell
+        end
+        binding.pry
+      csv << row_array
+    end
+
   end
-  csv << tarray
 end
 
-csv.close
 
 
-
-# doc = Nokogiri::HTML(open("#{url}"))
-
-# doc.xpath('//table//tr').each do |row|
-#     row.xpath('td').each do |cell|
-#     print '"', cell.text.gsub("\n", ' ').gsub('"', '\"').gsub(/(\s){2,}/m, '\1'), "\", "
-#   end
-#   print "\n"
-# end
-
-# doc.parse('table').each do |table|
-#     binding.pry
-#   table.parse('tr').each do |row|
-#       row.parse('td').each do |cell|
-#       print '"', cell.text.gsub("\n", ' ').gsub('"', '\"').gsub(/(\s){2,}/m, '\1'), "\", "
-#     end
-#     print "\n"
-#   end
-# end
-
-end
+def parse_repeaters_from_csv
+    CSV.foreach(@file, :headers => true, :header_converters => :symbol).map do |row|
+    Recipe.new(row)
+    end
+  end

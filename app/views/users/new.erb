@@ -1,0 +1,22 @@
+<table>
+  <form action='/users' method='post'>
+      <tr>
+        <td>Full name:</td>
+        <td><input type='text' name='user[name]' placeholder="Enter your name" required></td>
+      </tr>
+      <tr>
+        <td>Email address:</td>
+        <td><input type='email' name='user[email]' placeholder="Enter your Email" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$" required></td>
+      </tr>
+      <small>Passwords must be at least 4 characters long, and is case sensitive.</small>
+      <tr>
+        <td>Password:</td>
+        <td><input type='password' name='user[password]' placeholder="Choose a Password" pattern=".{4,}" required></td>
+      </tr>
+      <tr>
+      <tr>
+        <td><input type='submit' value='Join'></td><td></td>
+      </tr>
+    </form>
+  </table>
+

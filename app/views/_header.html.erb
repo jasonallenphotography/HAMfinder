@@ -1,0 +1,18 @@
+<header>
+  <nav>
+      <a href="/">Home</a>
+    <% if logged_in? %>
+      <a href="/users">Users</a>
+      <form class='logout_button' action='/logout' method='post'>
+        <input type='hidden' name='_method' value='delete'>
+        <input class='logout_button' type='submit' value='Logout'>
+      </form>
+    <% else %>
+      <a href="/login">Login</a>
+      <a href="/users/new">Join</a>
+    <% end %>
+  </nav>
+  <div class="title">
+    <h3>HAM Finder</h3>
+  </div>
+</header>

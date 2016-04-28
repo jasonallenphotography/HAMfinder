@@ -1,0 +1,159 @@
+/* CSS declarations go here */
+body {font-family: sans-serif; font-size: 160%; line-height: 160%; }
+h1, h2, h3, h4, h5, h6 {font-family: sans-serif; line-height:100%; margin-top: 0.5em; margin-bottom: 0.5em; color: #FF530D; font-style: italic; font-weight: 400;}
+h1 {font-size: 1.8em;}
+h2 {font-size: 1.6em;}
+h3 {font-size: 1.4em;}
+h4 {font-size: 1.3em;}
+h5 {font-size: 1.2em;}
+h6 {font-size: 1.1em;}
+p, pre, blockquote, table, ul, ol, dl {margin-top: .5em; margin-bottom: .5em;}
+ul ul, ul ol, ol ol, ol ul {margin-top: 0.5em; margin-bottom: 0.5em;}
+li {margin: 0.3em auto;}
+ul {margin-left: .5em; padding-left: 0.5em;}
+dt {font-weight: bold;}
+img {border: none;}
+pre {border-left: 1px solid #ccc; margin-left: 0em; padding-left: 0.5em;}
+blockquote {padding: 0.3em; background-color: #E8F2F5; margin-left:0.5em; margin-right:0;}
+th, td {border: 1px solid #ccc; padding: 0.3em;}
+th {background-color: #f0f0f0;}
+hr {border: none; border-top: 1px solid #E8F2F5; width: 100%;}
+del {text-decoration: line-through; color: #777777;}
+.toc li {list-style-type: none;}
+.todo {font-weight: bold; background-color: #f0ece8; color: #a03020;}
+.justleft {text-align: left;}
+.justright {text-align: right;}
+.justcenter {text-align: center;}
+.center {margin-left: auto; margin-right: auto;}
+
+a:link {
+    text-decoration: none;
+    color: #FF530D;
+}
+
+a:visited {
+    color: #FF530D;
+}
+
+a:hover{
+    color: #E82C0C;
+    text-decoration: underline;
+}
+
+header{
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.logout_button {
+   background: none;
+    border: none;
+    display: inline;
+    font: inherit;
+    color: #FF530D;
+    margin: 0;
+    padding: 0;
+    outline: none;
+    outline-offset: 0;
+    /* Additional styles to look like a link */
+}
+
+.logout_button:hover{
+    color: #E82C0C;
+    text-decoration: underline;
+}
+
+
+.title {
+    margin-bottom: 100px;
+    margin-top: 40px;
+    font-size: 30px;
+    color: #361531;
+
+}
+
+nav {
+    box-sizing: border;
+    float: right;
+    text-align: left;
+    padding:20px 40px 20px 40px;
+    border-radius: 30px 75px 30px 75px;
+    -moz-border-radius:30px 75px 30px 75px;
+    -webkit-border-radius:30px 75px 30px 75px;
+    background: #ffffff;
+    box-shadow: 5px 5px 5px 5px #333333;
+    -moz-box-shadow: 5px 5px 5px 5px #333333;
+    -webkit-box-shadow: 5px 5px 5px 5px #333333;
+}
+
+code {
+    font-family: Monaco,"Courier New","DejaVu Sans Mono","Bitstream Vera Sans Mono",monospace;
+    -webkit-border-radius: 1px;
+    -moz-border-radius: 1px;
+    border-radius: 1px;
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    padding: 0px 3px;
+    display: inline-block;
+    color: #52595d;
+    background-color: #E8F2F5;
+    font-size: 40%;
+    line-height: 1.4em;
+    margin-left: -1em;
+    overflow: auto;
+}
+
+footer {
+    box-sizing: border;
+    margin-left: 10%;
+    font-size: 0.7em;
+    float: left;
+    position: relative;
+    margin-top: 30px;
+    padding:10px 40px 10px 40px;
+    border-radius: 30px 75px 30px 75px;
+    -moz-border-radius:30px 75px 30px 75px;
+    -webkit-border-radius:30px 75px 30px 75px;
+    background: #fff;
+    box-shadow: 5px 5px 5px 5px #333333;
+    -moz-box-shadow: 5px 5px 5px 5px #333333;
+    -webkit-box-shadow: 5px 5px 5px 5px #333333;
+}
+
+table td {
+    border-style: hidden;
+}
+
+.author_box{
+    display: inline-block;
+    width: 300px;
+    height: 50px;
+    text-align: center;
+}
+
+#content {
+  margin-left: 10%;
+  margin-right: 10%;
+  width: auto;
+  background: #fff;
+  padding:1.5em 10% 2.5% 10%;
+  border-radius: 30px 75px 30px 75px;
+  -moz-border-radius:30px 75px 30px 75px;
+  -webkit-border-radius:30px 75px 30px 75px;
+  color: #000000;
+  box-shadow: 5px 5px 5px 5px #333333;
+  -moz-box-shadow: 5px 5px 5px 5px #333333;
+  -webkit-box-shadow: 5px 5px 5px 5px #333333;
+}
+
+  input:required:invalid, input:focus:invalid {
+    background-image: url(/img/invalid.png);
+    background-position: right;
+    background-repeat: no-repeat;
+  }
+  input:required:valid {
+    background-image: url(/img/valid.png);
+    background-position: right;
+    background-repeat: no-repeat;
+  }

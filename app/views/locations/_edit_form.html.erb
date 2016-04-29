@@ -1,5 +1,5 @@
 <table>
-  <form action='/locations' method='post'>
+  <form action='/locations/<%=location.id%>' method='post'>
     <input type='hidden' name='method' value='put'>
     <tr>
       <td>Location name:</td>
@@ -19,7 +19,7 @@
   </form>
 </table>
 
-  <formaction='/locations' method='post'>
+  <formaction='/locations/<%=location.id%>' method='post'>
     <input type='hidden' name='method' value='delete'>
     <input type='submit' value='Delete?'>
   </form>

@@ -2,7 +2,7 @@
 
 ## About HAMFinder
 
-This is an application designed and coded by myself while attending [Dev Booktcamp](http://devbootcamp.com/) across 24 hours from scratch to MVP.
+This is an application designed and coded by myself while attending [Dev Bootcamp](http://devbootcamp.com/) across 24 hours from scratch to MVP.
 
 ## Goals:
 

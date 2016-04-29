@@ -12,7 +12,10 @@ def create_csv_from_url(url)
     #     csv << th_array
     #   end
 
-    th_array = ["Location","Name","Frequency","Duplex","Offset","Tone","rToneFreq","cToneFreq","DtcsCode","DtcsPolarity","Mode","TStep","Skip","Comment","URCALL","RPT1CALL","RPT2CALL"]
+    th_array = ["Location","Name","Frequency","Duplex","Offset",
+                "Tone","rToneFreq","cToneFreq","DtcsCode","DtcsPolarity",
+                "Mode","TStep","Skip","Comment",
+                "URCALL","RPT1CALL","RPT2CALL"]
     csv << th_array
 
     all_cells = doc.xpath('//table/td').map {|content| content.text }
@@ -40,26 +43,37 @@ end
 
 def format_row_as_UV5R_for_CHIRP(idx, row)
     frequency = row[0].slice(2..-2)
-    rToneFreq = row[1]
+
+    case row[1]
+      when "0.0"
+        rToneFreq = 107.2
+        tone = ''
+      when ""
+        rToneFreq = 107.2
+        tone = "TSQL"
+      else
+        rToneFreq = row[1]
+        tone = "TSQL"
+    end
+
     call = row[4]
     distance = row[6]
 
-    if row[0].include? "+" or "-"
+    if row[0][-1] == "+" or row[0][-1] == "-"
       duplex = row[0].slice(-1)
-      offset = "0.6"
+      offset = 0.6
       else
       duplex = ""
-      offset = "0"
+      offset = 0
     end
 
-    tone = "TSQL"
-    cToneFreq = rToneFreq.dup
-    dtcsCode = "23"
+    cToneFreq = rToneFreq
+    dtcsCode = 23
     dtcsPolarity = "NN"
     mode = "FM"
-    tstep = "5"
+    tstep = 5
     skip=""
-    comment="#{row[2]} #{row[3]} #{distance}mi away"
+    comment="#{distance}mi away in #{row[2]} #{row[3]}"
     urcall=""
     rpt1call=""
     rpt2call=""

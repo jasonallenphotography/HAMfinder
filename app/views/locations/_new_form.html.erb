@@ -1,0 +1,19 @@
+<table>
+  <form action='/locations' method='post'>
+    <tr>
+      <td>Location name:</td>
+      <td><input type='text' name='location[name]' placeholder="Enter location name" pattern=".{3,}" required></td>
+    </tr>
+    <tr>
+      <td>Zipcode:</td>
+      <td><input type='text' name='location[zip]' placeholder="Enter location zipcode" pattern="{5}" required></td>
+    </tr>
+    <tr>
+      <td>Notes:</td>
+      <td><textarea name='location[note]' placeholder="Enter a note? (Optional)" rows="6" cols="50"></textarea></td>
+    </tr>
+    <tr>
+      <td><input type='submit' value='Join'></td><td></td>
+    </tr>
+  </form>
+</table>

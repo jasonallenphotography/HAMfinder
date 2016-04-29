@@ -1,8 +1,8 @@
 get '/users' do
   redirect_unless_logged_in
-
-  @users = User.all.order(created_at: :asc)
-  erb :'users/index'
+  redirect "/users/#{current_user.id}"
+  # @users = User.all.order(created_at: :asc)
+  # erb :'users/index'
 end
 
 get '/users/new' do

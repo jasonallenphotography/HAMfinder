@@ -21,11 +21,10 @@ def create_csv_from_url(url)
 
     until all_cells.empty?
       row_array = []
-      row = all_cells.shift(6)
+      row = all_cells.shift(8)
         row.each do |cell|
           row_array << cell
         end
-        binding.pry
       csv << row_array
     end
 

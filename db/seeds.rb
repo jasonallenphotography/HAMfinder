@@ -1,7 +1,5 @@
 require 'faker'
 
-user1 = User.create!(name: "Jason Allen", password: "1234", email: "a@b.com")
-
 # create Users
 19.times do
   User.create!(
@@ -20,3 +18,12 @@ end
     user: User.all.sample
     )
 end
+
+user1 = User.create!(name: "Jason Allen", password: "1234", email: "a@b.com")
+
+ Location.create!(
+    name: "Brooklyn",
+    note: "Home area, 25mi radius",
+    zip: "11232",
+    user_id: 20
+    )

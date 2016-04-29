@@ -1,29 +1,29 @@
-<div>
-<h1><%= @user.name %>'s locations</h1>
-<h3>User's email: <%= @user.email %></h3>
+<div class="locations">
+  <h1>My locations</h1>
+  <h3>My email: <%= @user.email %></h3>
 
-<% if @user.has_locations? %>
-  <% @user.locations.each do |location| %>
-  <hr>
-  <div class="location">
-    <table>
-      <tr>
-        <td><a href="/locations/<%=location.id%>"><%=location.name%></a></td>
-        <td></td>
-<!--         <td><form action='#' type='get'>
-          <input type='submit' value ='Get Repeaters for <%=location.zip%>'>
-        </form></td> -->
-        <td>
-          <form action='/csv' method='post'>
-          <input type='hidden' name='url' value='https://www.repeaterbook.com/repeaters/print/PFprox.php?city=<%=location.zip%>&distance=25&Dunit=m&freq=&band=14&call=&use=%&features=%&status_id=%'>
-          <input type='submit' value='Get Repeaters for <%=location.zip%>'>
-        </form></td>
-      </tr>
-    </table>
-    <p>Notes: <%=location.note%></p>
-  </div>
+  <% if @user.has_locations? %>
+    <% @user.locations.each do |location| %>
+    <hr>
+    <div class="location">
+      <table>
+        <tr>
+          <td><a href="/locations/<%=location.id%>"><%=location.name%></a></td>
+          <td></td>
+  <!--         <td><form action='#' type='get'>
+            <input type='submit' value ='Get Repeaters for <%=location.zip%>'>
+          </form></td> -->
+          <td class="query-button">
+            <form action='/csv' method='post'>
+            <input type='hidden' name='url' value='https://www.repeaterbook.com/repeaters/print/PFprox.php?city=<%=location.zip%>&distance=50&Dunit=m&freq=&band=14&call=&use=%&features=%&status_id=%'>
+            <input type='submit' value='Get Repeaters for <%=location.zip%>'>
+          </form></td>
+        </tr>
+      </table>
+      <div class="query-result">
+      </div>
+      <p>Notes: <%=location.note%></p>
+    </div>
+    <% end %>
   <% end %>
-<% end %>
-
-
 </div>

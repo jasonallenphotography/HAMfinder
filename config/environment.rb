@@ -49,4 +49,6 @@ Dir[APP_ROOT.join('app', 'helpers', '*.rb')].each { |file| require file }
 # Set up the database and models
 require APP_ROOT.join('config', 'database')
 
-ActiveRecord::Base.establish_connection(ENV['postgres://ovonhwvjhquvaj:GDfhk0MfOvwWWzqH3oxpkCwqEw@ec2-54-243-195-46.compute-1.amazonaws.com:5432/d8vfngh6o4denv'] || 'postgres://localhost/mydb')
+ActiveRecord::Base.establish_connection('postgres://ovonhwvjhquvaj:GDfhk0MfOvwWWzqH3oxpkCwqEw@ec2-54-243-195-46.compute-1.amazonaws.com:5432/d8vfngh6o4denv')
+
+# ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'] || 'postgres://localhost/mydb')

@@ -23,6 +23,8 @@ require 'csv'
 require 'nokogiri'
 require 'open-uri'
 
+
+
 # Some helper constants for path-centric logic
 APP_ROOT = Pathname.new(File.expand_path('../../', __FILE__))
 
@@ -34,7 +36,7 @@ configure do
   set :root, APP_ROOT.to_path
   # See: http://www.sinatrarb.com/faq.html#sessions
   enable :sessions
-  set :session_secret, ENV['SESSION_SECRET'] || 'this is a secret shhhhh'
+  set :session_secret, ENV['SESSION_SECRET'] || 'Abby rocks as a mentor'
 
   # Set the views to
   set :views, File.join(Sinatra::Application.root, "app", "views")
@@ -46,3 +48,5 @@ Dir[APP_ROOT.join('app', 'helpers', '*.rb')].each { |file| require file }
 
 # Set up the database and models
 require APP_ROOT.join('config', 'database')
+
+ActiveRecord::Base.establish_connection(ENV['postgres://ovonhwvjhquvaj:GDfhk0MfOvwWWzqH3oxpkCwqEw@ec2-54-243-195-46.compute-1.amazonaws.com:5432/d8vfngh6o4denv'] || 'postgres://localhost/mydb')

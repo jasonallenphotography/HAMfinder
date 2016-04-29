@@ -4,13 +4,16 @@ def create_csv_from_url(url)
 
   CSV.open("public/output.csv", 'w', {col_sep: ","}) do |csv|
 
-    doc.xpath('//table').each do |table|
-      th_array = []
-        table.xpath('th').each do |th|
-          th_array << th.text
-        end
-        csv << th_array
-      end
+    # doc.xpath('//table').each do |table|
+    #   th_array = []
+    #     table.xpath('th').each do |th|
+    #       th_array << th.text
+    #     end
+    #     csv << th_array
+    #   end
+
+    th_array = ["Location","Name","Frequency","Duplex","Offset","Tone","rToneFreq","cToneFreq","DtcsCode","DtcsPolarity","Mode","TStep","Skip","Comment","URCALL","RPT1CALL","RPT2CALL"]
+    csv << th_array
 
     all_cells = doc.xpath('//table/td').map {|content| content.text }
 
@@ -19,12 +22,15 @@ def create_csv_from_url(url)
       cell.delete!(" ")
     end
 
+    row_idx = 1
     until all_cells.empty?
       row_array = []
       row = all_cells.shift(8)
+      row = format_row_as_UV5R_for_CHIRP(row_idx,row)
         row.each do |cell|
           row_array << cell
         end
+      row_idx += 1
       csv << row_array
     end
 
@@ -32,9 +38,39 @@ def create_csv_from_url(url)
 end
 
 
+def format_row_as_UV5R_for_CHIRP(idx, row)
+    frequency = row[0].slice(2..-2)
+    rToneFreq = row[1]
+    call = row[4]
+    distance = row[6]
 
-def parse_repeaters_from_csv
-    CSV.foreach(@file, :headers => true, :header_converters => :symbol).map do |row|
-    Recipe.new(row)
+    if row[0].include? "+" or "-"
+      duplex = row[0].slice(-1)
+      offset = "0.6"
+      else
+      duplex = ""
+      offset = "0"
     end
-  end
+
+    tone = "TSQL"
+    cToneFreq = rToneFreq.dup
+    dtcsCode = "23"
+    dtcsPolarity = "NN"
+    mode = "FM"
+    tstep = "5"
+    skip=""
+    comment="#{row[2]} #{row[3]} #{distance}mi away"
+    urcall=""
+    rpt1call=""
+    rpt2call=""
+
+    row = ["#{idx}",call,frequency,duplex,offset,tone,rToneFreq,cToneFreq,dtcsCode,dtcsPolarity,mode,tstep,skip,comment,urcall,rpt1call,rpt2call]
+
+end
+
+## For future update
+# def parse_repeaters_from_csv
+#     CSV.foreach(@file, :headers => true, :header_converters => :symbol).map do |row|
+#     Recipe.new(row)
+#     end
+#   end

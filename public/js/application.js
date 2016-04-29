@@ -25,6 +25,7 @@ $(document).ready(function() {
     $.ajax({
       url: $target.attr('action'),
       method: $target.attr('method'),
+      data: $target.serialize()
     }).done(function(response){
       $('.locations').prepend(response);
       $('#new-location-form').hide(500);

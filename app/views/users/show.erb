@@ -5,7 +5,7 @@
   </form>
 
   <div id='new-location-form'>
-    <%= erb :'locations/_new_form.html', layout: false %>
+    <%= erb :'locations/_new_form.html', layout: false, locals: { location: @location }  %>
   </div>
 <div class="locations">
   <% if @user.has_locations? %>

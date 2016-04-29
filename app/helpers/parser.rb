@@ -2,7 +2,7 @@ def create_csv_from_url(url)
 
   doc = Nokogiri::HTML(open("#{url}"))
 
-  CSV.open("output.csv", 'w', {col_sep: ","}) do |csv|
+  CSV.open("public/output.csv", 'w', {col_sep: ","}) do |csv|
 
     doc.xpath('//table').each do |table|
       th_array = []

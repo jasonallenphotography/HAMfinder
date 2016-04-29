@@ -1,13 +1,31 @@
 get '/locations/new' do
-  erb :'locations/new'
+  redirect_unless_logged_in
+
+  if request.xhr?
+    "OK"
+  else
+    erb :'locations/new'
+  end
+end
+
+get '/locations/download' do
+  redirect_unless_logged_in
+
+  erb :'locations/download'
 end
 
 post '/locations' do
+  redirect_unless_logged_in
+
   @location = Location.new(params[:location])
   @location.user = current_user
 
   if @location.save
-    redirect "/users/#{current_user.id}"
+    if request.xhr?
+      "#{erb :'locations/_location.html', layout: false, locals: { location: @location }}"
+    else
+      redirect "/users/#{current_user.id}"
+    end
   else
     erb :'locations/new'
   end

@@ -1,7 +1,57 @@
 $(document).ready(function() {
-  // This is called after the document has loaded in its entirety
-  // This guarantees that any elements we bind to will exist on the page
-  // when we try to bind to them
 
-  // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
+  // $('.locations').on('click',function(e){
+  //   e.preventDefault();
+  //   var $target = $(e.target);
+  // });
+  $('#new-location').on('submit',function(e){
+    e.preventDefault();
+    var $target = $(e.target);
+    $('#new-location').hide(500);
+
+    $.ajax({
+      url: $target.attr('action'),
+      method: $target.attr('method'),
+    }).done(function(response){
+      $('#new-location-form').show(500);
+    });
+  });
+
+  $('#new-location-form').on('submit',function(e){
+    e.preventDefault();
+    var $target = $(e.target);
+    $('#new-location-form').hide(500);
+
+    $.ajax({
+      url: $target.attr('action'),
+      method: $target.attr('method'),
+    }).done(function(response){
+      $('.locations').prepend(response);
+      $('#new-location-form').hide(500);
+      $('#new-location').show(500);
+    });
+  });
+
+
+
+  $('.locations').on('submit',function(e){
+    e.preventDefault();
+    var $target = $(e.target);
+    $('.query-result').hide(500);
+    $('.query-button').show(500);
+    $target.closest('.query-button').hide(500);
+    // $('.query-result').hide(500);
+
+    $.ajax({
+      url: $target.attr('action'),
+      method: $target.attr('method'),
+      data: $target.serialize()
+    }).done(function(response){
+
+      $target.closest('.location')
+        .find('.query-result')
+        .delay( 500)
+        .show(500);
+    });
+  });
 });

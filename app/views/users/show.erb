@@ -1,29 +1,16 @@
-<div class="locations">
   <h1>My locations</h1>
-  <h3>My email: <%= @user.email %></h3>
 
+  <form id='new-location' action='/locations/new' method='get'>
+    <input type='submit' value='Add a new location'>
+  </form>
+
+  <div id='new-location-form'>
+    <%= erb :'locations/_new_form.html', layout: false %>
+  </div>
+<div class="locations">
   <% if @user.has_locations? %>
     <% @user.locations.each do |location| %>
-    <hr>
-    <div class="location">
-      <table>
-        <tr>
-          <td><a href="/locations/<%=location.id%>"><%=location.name%></a></td>
-          <td></td>
-  <!--         <td><form action='#' type='get'>
-            <input type='submit' value ='Get Repeaters for <%=location.zip%>'>
-          </form></td> -->
-          <td class="query-button">
-            <form action='/csv' method='post'>
-            <input type='hidden' name='url' value='https://www.repeaterbook.com/repeaters/print/PFprox.php?city=<%=location.zip%>&distance=50&Dunit=m&freq=&band=14&call=&use=%&features=%&status_id=%'>
-            <input type='submit' value='Get Repeaters for <%=location.zip%>'>
-          </form></td>
-        </tr>
-      </table>
-      <div class="query-result">
-      </div>
-      <p>Notes: <%=location.note%></p>
-    </div>
+      <%= erb :'locations/_location.html', layout: false, locals: { location: location } %>
     <% end %>
   <% end %>
 </div>

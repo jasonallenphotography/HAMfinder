@@ -55,7 +55,7 @@ $(document).ready(function() {
   });
 
 
-  $('.locations').on('submit',function(e){
+  $('.locations').on('submit', '.query-button', function(e){
     e.preventDefault();
     var $target = $(e.target);
     $('.query-result').hide(500);

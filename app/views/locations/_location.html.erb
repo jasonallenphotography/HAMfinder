@@ -7,8 +7,8 @@
 <!--         <td><form action='#' type='get'>
         <input type='submit' value ='Get Repeaters for <%=location.zip%>'>
       </form></td> -->
-      <td class="query-button">
-        <form action='/csv' method='post'>
+      <td>
+        <form class="query-button" action='/csv' method='post'>
         <input type='hidden' name='url' value='https://www.repeaterbook.com/repeaters/print/PFprox.php?city=<%=location.zip%>&distance=50&Dunit=m&freq=&band=14&call=&use=%&features=%&status_id=%'>
         <input type='submit' value='Get Repeaters for <%= location.zip %>'>
       </form></td>

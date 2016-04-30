@@ -9,8 +9,10 @@
   </div>
 <div class="locations">
   <% if @user.has_locations? %>
-    <% @user.locations.each do |location| %>
+    <% @user.locations.order(created_at: :asc).each do |location| %>
+    <div class="location-container">
       <%= erb :'locations/_location.html', layout: false, locals: { location: location } %>
+    </div>
     <% end %>
   <% end %>
 </div>

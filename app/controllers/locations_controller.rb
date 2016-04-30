@@ -42,9 +42,9 @@ put '/locations/:id' do
 
   if @location.save
     if request.xhr?
-      erb :'locations/_location.html', layout: false, locals: { location: @location }
+      "#{erb :'locations/_location.html', layout: false, locals: { location: @location }}"
     else
-    redirect "/users/#{@location.user_id}"
+      redirect "/users/#{current_user.id}"
     end
   else
     erb :'locations/edit'
@@ -55,5 +55,5 @@ end
 delete '/locations/:id' do
   @location = Location.find(params[:id])
   @location.destroy
-  redirect '/locations'
+  redirect "/users/#{current_user.id}"
 end

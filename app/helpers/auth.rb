@@ -6,6 +6,10 @@ def logged_in?
   current_user != nil
 end
 
+def redirect_unless_self(user)
+  redirect "/users/#{current_user.id}" unless current_user.id == user.id
+end
+
 def redirect_unless_logged_in
   redirect '/login' unless logged_in?
 end
@@ -15,7 +19,7 @@ def redirect_if_already_logged_in
 end
 
 def redirect_unless_current_user_owns(thing)
-  redirect '/' unless logged_in? && current_user.id == thing.author_id
+  redirect '/' unless logged_in? && current_user.id == thing.user_id
 end
 
 def redirect_unless_editing_or_deleting_own(profile_owner)

@@ -1,5 +1,5 @@
-<hr>
 <div class="location">
+<hr>
   <table>
     <tr>
       <td><a class='edit-delete' href="/locations/<%=location.id%>/edit"><%=location.name%></a></td>
@@ -14,12 +14,14 @@
       </form></td>
     </tr>
   </table>
-  <div class="edit-delete-form">
-    <%= erb :'locations/_edit_form.html', layout: false, locals: { location: location } %>
-  </div>
+  <p>Notes: <%=location.note%></p>
+  <div class="edit-delete-form-div">
+      <div class='edit-delete-form' ></div>
+        <%= erb :'locations/_edit_form.html', layout: false, locals: { location: location } %>
+        <%= erb :'locations/_delete_form.html', layout: false, locals: { location: location } %>
+    </div>
   <div class="query-result">
     <a href="../output.csv" download="<%=location.zip%>.csv">Download Your CSV for CHIRP!</a>
   </div>
-  <p>Notes: <%=location.note%></p>
 </div>
 

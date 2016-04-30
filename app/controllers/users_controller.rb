@@ -23,9 +23,10 @@ post '/users' do
 end
 
 get '/users/:id' do
-  redirect_unless_logged_in
-
   @user = User.find(params[:id])
+  redirect_unless_logged_in
+  redirect_unless_self(@user)
+
   erb :'users/show'
 end
 

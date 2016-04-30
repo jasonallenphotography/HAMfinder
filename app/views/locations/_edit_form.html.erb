@@ -1,6 +1,6 @@
 <table>
-  <form class='' action='/locations/<%=location.id%>' method='post'>
-    <input type='hidden' name='method' value='put'>
+  <form class='edit-form' action='/locations/<%=location.id%>' method='post'>
+    <input type='hidden' name='_method' value='put'>
     <tr>
       <td>Location name:</td>
       <td><input type='text' name='location[name]' placeholder="Enter location name" value='<%=location.try(:name)%>' required></td>
@@ -11,15 +11,10 @@
     </tr>
     <tr>
       <td>Notes:</td>
-      <td><textarea name='location[note]' rows="6" cols="40" value='<%=location.try(:note)%>'></textarea></td>
+      <td><textarea name='location[note]' rows="6" cols="40"><%=location.try(:note)%></textarea></td>
     </tr>
     <tr>
       <td><input type='submit' value='Submit'></td><td></td>
     </tr>
   </form>
 </table>
-
-  <form action='/locations/<%=location.id%>' method='post'>
-    <input type='hidden' name='method' value='delete'>
-    <input type='submit' value='Delete?'>
-  </form>

@@ -41,7 +41,11 @@ put '/locations/:id' do
   @location.assign_attributes(params[:location])
 
   if @location.save
-    redirect '/locations'
+    if request.xhr?
+      erb :'locations/_location.html', layout: false, locals: { location: @location }
+    else
+    redirect "/users/#{@location.user_id}"
+    end
   else
     erb :'locations/edit'
   end

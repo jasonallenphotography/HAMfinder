@@ -2,7 +2,7 @@
 <div class="location">
   <table>
     <tr>
-      <td><a href="/locations/<%=location.id%>/edit"><%=location.name%></a></td>
+      <td><a class='edit-delete' href="/locations/<%=location.id%>/edit"><%=location.name%></a></td>
       <td></td>
 <!--         <td><form action='#' type='get'>
         <input type='submit' value ='Get Repeaters for <%=location.zip%>'>
@@ -14,6 +14,9 @@
       </form></td>
     </tr>
   </table>
+  <div class="edit-delete-form">
+    <%= erb :'locations/_edit_form.html', layout: false, locals: { location: @location } %>
+  </div>
   <div class="query-result">
     <a href="../output.csv" download="<%=location.zip%>.csv">Download Your CSV for CHIRP!</a>
   </div>

@@ -147,10 +147,12 @@ table td {
   -webkit-box-shadow: 5px 5px 5px 5px #333333;
 }
 
-#new-location-form{
+#new-location-form {
     display: none;
 }
-
+.edit-delete-form {
+    display: none;
+}
 
 .query-result{
     display: none;

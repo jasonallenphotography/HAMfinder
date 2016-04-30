@@ -1,17 +1,17 @@
 <table>
-  <form action='/locations/<%=location.id%>' method='post'>
+  <form class='' action='/locations/<%=location.id%>' method='post'>
     <input type='hidden' name='method' value='put'>
     <tr>
       <td>Location name:</td>
-      <td><input type='text' name='location[name]' placeholder="Enter location name" value='<%=location.try(:name)%>' required></td>
+      <td><input type='text' name='location[name]' placeholder="Enter location name" value='<%=location.name%>' required></td>
     </tr>
     <tr>
       <td>Zipcode:</td>
-      <td><input type='text' name='location[zip]' placeholder="Enter zipcode" pattern="\d{5}" value='<%=location.try(:zip)%>' required></td>
+      <td><input type='text' name='location[zip]' placeholder="Enter zipcode" pattern="\d{5}" value='<%=location.zip%>' required></td>
     </tr>
     <tr>
       <td>Notes:</td>
-      <td><textarea name='location[note]' placeholder="Enter a note? (Optional)" rows="6" cols="50" value='<%=location.try(:note)%>'></textarea></td>
+      <td><textarea name='location[note]' rows="6" cols="40" value='<%=location.note%>'></textarea></td>
     </tr>
     <tr>
       <td><input type='submit' value='Submit'></td><td></td>

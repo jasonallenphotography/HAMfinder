@@ -36,7 +36,7 @@ $(document).ready(function() {
   $('.locations').on('click', '.edit-delete', function(e){
     e.preventDefault();
     var $target = $(e.target);
-    $('edit-delete-form').show(500)
+    $('.edit-delete-form').show(500)
   });
 
 

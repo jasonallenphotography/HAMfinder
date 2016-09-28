@@ -1,7 +1,7 @@
 post '/csv' do
-  @url = params[:url]
-  @location = params[:location]
-  create_csv_from_url(@url)
+	zip = params[:zip]
+  # @location = params[:location]
+  create_csv_from_zip(zip)
 
   if request.xhr?
     "OK"

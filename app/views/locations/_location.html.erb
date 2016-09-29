@@ -8,8 +8,8 @@
         <input type='submit' value ='Get Repeaters for <%=location.zip%>'>
       </form></td> -->
       <td>
-        <form class="query-button" action='/csv' method='post'>
-        <input type='hidden' name='url' value='https://www.repeaterbook.com/repeaters/print/PFprox.php?city=<%=location.zip%>&distance=50&Dunit=m&freq=&band=14&call=&use=%&features=%&status_id=%'>
+      <form class="query-button" action='/csv' method='post'>
+        <input type='hidden' name='zip' value='<%=location.zip%>'>
         <input type='submit' value='Get Repeaters for <%= location.zip %>'>
       </form></td>
     </tr>

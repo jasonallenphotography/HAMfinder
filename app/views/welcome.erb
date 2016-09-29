@@ -1,9 +1,35 @@
-<h1>Welcome to HAM Finder!</h1>
+<h4>UPDATE (9/28/2016)</h4>
+<p>Jason has deployed a Ruby Gem based on the idea behind this app, which allows other developers to query HAM Radio repeaters on many different HF and VHF bands with selectable query radii of 5-200 miles - and it returns the data in JSON format!</p>
+<p>Please visit the <a href="https://github.com/jasonallenphotography/HAMfinder_gem">HAMfinder gem</a> on GitHub for more information on how to use this module in your next app, or pull it down from <a href="https://rubygems.org/gems/hamfinder">RubyGems.org</a>!</p>
 <br>
-<p>HAM Finder is a web application developed by <a href="https://github.com/jasonallenphotography">Jason Allen</a>, a student at <a href="http://devbootcamp.com">Dev Bootcamp</a>.</p>
+<h1>Welcome to HAMfinder!</h1>
 <br>
-<p>This appliction allows users to save locations by zipcode relevant to their home location or travels, query all of the 2m and 70cm band repeaters within 25 miles of the target zipcode, and receive a CSV file that is ready to load into a HAM Radio programming appliction (I recommend and contribute to <a href="http://chirp.danplanet.com/projects/chirp">CHIRP</a>).</p>
+<p>HAMfinder is a web application originally developed independently by <a href="https://github.com/jasonallenphotography">Jason Allen</a>, a graduate of <a href="http://devbootcamp.com">Dev Bootcamp</a> as part of a student hackathon in early 2016.</p>
 <br>
-<p>My hope is that this web application will make it easier for amateur radio enthusiasts, Amateur Radio Emergency Service (ARES) groups, and Radio Amateur Civil Emergency Service (RACES) groups to program their digital radios.</p>
+<p>HAM (aka Amateur) radio services in the US are quite robust, and repeater towers receive and retransmit (repeat) low power broadcasts over wide areas and in some cases at thousands of watts of power! Repeaters are particularly useful for lower power handheld units that have limited range and are subject to more interference, but handheld devices are the most popular way of getting on the air waves, particularly during crisis or disaster situations (hurricanes, wildfires, floods, earthquakes) when cellular networks are overwhelmed or unreliable, and land lines or power may be compromised. Knowing what repeaters are near your current or anticipated location is valuable information, and HAMfinder takes a lot of the work out of it for you!</p>
+<br>
+<p>This appliction allows users to save locations (by zipcode) relevant to their home location or travels, to query all of the 2m and 70cm band repeaters within 5 mile radius of the target zipcode, and receive a generated-on-demand CSV file of those radio repeater stations (sorted by proximity) that is ready to load directly into a HAM radio (Jason recommends and contributes to <a href="http://chirp.danplanet.com/projects/chirp">CHIRP</a>, an open source tool for radio programming via USB). The repeater data output should be universal for most handheld HAM Radios that CHIRP is compatible with, but it is known and tested to work correctly on the following units:</p>
+<ul>
+	<li>Yaesu FT-series handheld units and FT-2900 and FT-7800/7900 variants</li>
+	<li>Baofeng UV-3, UV-5r series (all variants), BF-F8HP</li>
+	<li>Wouxun KG-series handhelds</li>
+	<li>Kenwood TH-series handhelds</li>
+	<li><a href="mailto:jasonallenphotography@gmail.com">Contact Jason</a> if you have success using HAMfinder's CSVs with another radio model and using CHIRP Build 20160419 or later!</li>
+</ul>
+<br>
+<p>Jason's hope is that this simple web application, and the corresponding Ruby Gem will make it easier for amateur radio enthusiasts, Amateur Radio Emergency Service (ARES) groups, and Radio Amateur Civil Emergency Service (RACES) groups to program their digital radios. HAMfinder is currently in use by members of the Southwest Virginia Mountain Rescue Group and the Alexandria VA Radio Club.</p>
+<br>
+<b>The main advantage of this gem, and this app leveraging it, is that it's tedious to manually enter in all of the settings for all of the repeaters in a new location - this makes it simple to pick a location, get the information you need, and be up on the airwaves in as little as 90 seconds from login to pinging repeaters near you!</b>
+<br>
+<br>
+<h3>THANKS!</h3>
+	The following HAM Radio enthusiasts have helped the HAMfinder project with their insight:
+	<ul>
+		<li>WA2PCS/K2MTG - Matthew Grossman</li>
+		<li>KD6LAA - Paul Blumstein</li>
+		<li>KK4QZZ - James Schlitt</li>
+	</ul>
+	73's to all of you!
+<br>
 <br>
 <p>Repeater data is courtesy of <a href="https://www.repeaterbook.com">RepeaterBook</a>, an EXCELLENT amateur radio resource which is updated by the community, and provided as a service to the public. ZBM2 Software, owners of RepeaterBook, and Jason Allen, the developer of this application, and others responsible for the administration of RepeaterBook are not responsible for the accuracy of information provided, or for the misuse of information provided. By using this site you warrant that you are a licensed amateur radio operator and will comply with the FCC's laws and regulations thereto.</p>

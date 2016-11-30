@@ -26,7 +26,7 @@ def create_csv_from_zip(zip)
     csv << th_array
 
     #Collect results from a fresh Hamfinder/RepeaterBook query
-    results = Hamfinder::Parser.query( zip: zip )
+    results = Hamfinder::Parser.query( zip: zip, radius: 50 )
     repeaters = JSON.parse(results, symbolize_names: true)
 
     #Iterate through the collected repeaters, sanitize data, output to CHIRP CSV

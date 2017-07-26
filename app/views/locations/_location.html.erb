@@ -2,7 +2,9 @@
 <hr>
   <p>
     <strong><%=location.name%></strong> (<%=location.zip%>) 
-    <small><a class='edit-delete' href="/locations/<%=location.id%>/edit">Edit/Delete?</a></small>
+    <span class="edit-delete-span">
+      <small><a class='edit-delete' href="/locations/<%=location.id%>/edit">Edit/Delete?</a></small>
+    </span>
   </p>
   <p>
     <strong>Notes:</strong> <%=location.note%>
@@ -17,7 +19,6 @@
   <div class="edit-delete-form-div">
     <div class='edit-delete-form' ></div>
     <%= erb :'locations/_edit_form.html', layout: false, locals: { location: location } %>
-    <%= erb :'locations/_delete_form.html', layout: false, locals: { location: location } %>
   </div>
 
   <div class="query-result">

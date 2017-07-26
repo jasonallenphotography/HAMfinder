@@ -14,7 +14,19 @@
       <td><textarea name='location[note]' rows="6" cols="40"><%=location.try(:note)%></textarea></td>
     </tr>
     <tr>
-      <td><input type='submit' value='Submit'></td><td></td>
+      <td></td><td><a href="#" class="cancel">Cancel Editing</a></td>
+    </tr>
+    <tr>
+      <td></td><td><input type='submit' value='Submit Changes to <%=location.zip%>?'></td><td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <form action='/locations/<%=location.id%>' method='post'>
+          <input type='hidden' name='_method' value='delete'>
+          <input type='submit' value='Delete?'>
+        </form>  
+      </td>
     </tr>
   </form>
 </table>

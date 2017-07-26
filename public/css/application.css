@@ -77,9 +77,9 @@ nav {
     float: right;
     text-align: left;
     padding:20px 40px 20px 40px;
-    border-radius: 30px 75px 30px 75px;
-    -moz-border-radius:30px 75px 30px 75px;
-    -webkit-border-radius:30px 75px 30px 75px;
+    border-radius: 30px 30px 30px 30px;
+    -moz-border-radius:30px 30px 30px 30px;
+    -webkit-border-radius:30px 30px 30px 30px;
     background: #ffffff;
     box-shadow: 5px 5px 5px 5px #333333;
     -moz-box-shadow: 5px 5px 5px 5px #333333;
@@ -112,9 +112,9 @@ footer {
     position: relative;
     margin-top: 30px;
     padding:10px 40px 10px 40px;
-    border-radius: 30px 75px 30px 75px;
-    -moz-border-radius:30px 75px 30px 75px;
-    -webkit-border-radius:30px 75px 30px 75px;
+    border-radius: 30px 30px 30px 30px;
+    -moz-border-radius:30px 30px 30px 30px;
+    -webkit-border-radius:30px 30px 30px 30px;
     background: #fff;
     box-shadow: 5px 5px 5px 5px #333333;
     -moz-box-shadow: 5px 5px 5px 5px #333333;
@@ -138,9 +138,9 @@ table td {
   width: auto;
   background: #fff;
   padding:1.5em 10% 2.5% 10%;
-  border-radius: 30px 75px 30px 75px;
-  -moz-border-radius:30px 75px 30px 75px;
-  -webkit-border-radius:30px 75px 30px 75px;
+  border-radius: 30px 30px 30px 30px;
+  -moz-border-radius:30px 30px 30px 30px;
+  -webkit-border-radius:30px 30px 30px 30px;
   color: #000000;
   box-shadow: 5px 5px 5px 5px #333333;
   -moz-box-shadow: 5px 5px 5px 5px #333333;

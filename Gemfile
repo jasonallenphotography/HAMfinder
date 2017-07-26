@@ -15,7 +15,7 @@ gem 'rake'
 gem 'pry'
 gem 'shotgun'
 
-gem 'hamfinder'
+gem 'hamfinder', '~>0.2.6'
 
 group :test do
   gem 'database_cleaner', '~> 1.4.1'

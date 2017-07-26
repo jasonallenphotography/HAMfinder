@@ -22,7 +22,8 @@
   </div>
 
   <div class="query-result">
-    <a href="../tmp/<%= location.zip %>_<%= current_user.name %>.csv" >Download Your CSV for CHIRP!</a>
+  <!-- #{settings.root}/tmp/#{zip}_#{user.name}.csv -->
+    <a href="<%= settings.root %>/tmp/<%= location.zip %>.csv" >Download Your CSV for CHIRP!</a>
   </div>
 </div>
 

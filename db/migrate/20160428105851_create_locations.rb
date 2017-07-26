@@ -1,10 +1,10 @@
-class CreateLocations < ActiveRecord::Migration
+class CreateLocations < ActiveRecord::Migration[4.2]
   def change
     create_table :locations do |t|
       t.string :name, null: false
-      t.string :note
-      t.integer :zip, null: false
-      t.references :user
+      t.string :zip, null: false
+      t.text	 :note
+      t.references :user, null: false
 
       t.timestamps null: false
     end

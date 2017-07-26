@@ -1,8 +1,8 @@
 require 'hamfinder'
 
-def create_csv_from_zip(zip)
+def create_csv_from_zip(zip, user)
 
-  CSV.open("public/output.csv", 'w', {col_sep: ","}) do |csv|
+  CSV.open("public/tmp/#{zip}_#{user.name}.csv", 'w', {col_sep: ","}) do |csv|
     #Define UV5R headers for CHIRP columns
     th_array = ["Location",
                 "Frequency",

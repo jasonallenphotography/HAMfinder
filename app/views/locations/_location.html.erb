@@ -1,27 +1,27 @@
 <div class="location">
 <hr>
-  <table>
-    <tr>
-      <td><a class='edit-delete' href="/locations/<%=location.id%>/edit"><%=location.name%></a></td>
-      <td></td>
-<!--         <td><form action='#' type='get'>
-        <input type='submit' value ='Get Repeaters for <%=location.zip%>'>
-      </form></td> -->
-      <td>
-      <form class="query-button" action='/csv' method='post'>
-        <input type='hidden' name='zip' value='<%=location.zip%>'>
-        <input type='submit' value='Get Repeaters for <%= location.zip %>'>
-      </form></td>
-    </tr>
-  </table>
-  <p>Notes: <%=location.note%></p>
+  <p>
+    <strong><%=location.name%></strong> (<%=location.zip%>) 
+    <small><a class='edit-delete' href="/locations/<%=location.id%>/edit">Edit/Delete?</a></small>
+  </p>
+  <p>
+    <strong>Notes:</strong> <%=location.note%>
+  </p>
+
+  <form class="query-button" action='/csv' method='post'>
+    <input type='hidden' name='zip' value='<%=location.zip%>'>
+    <input type='submit' value='Get Repeaters for <%= location.zip %>'>
+  </form>
+  
+  
   <div class="edit-delete-form-div">
-      <div class='edit-delete-form' ></div>
-        <%= erb :'locations/_edit_form.html', layout: false, locals: { location: location } %>
-        <%= erb :'locations/_delete_form.html', layout: false, locals: { location: location } %>
-    </div>
+    <div class='edit-delete-form' ></div>
+    <%= erb :'locations/_edit_form.html', layout: false, locals: { location: location } %>
+    <%= erb :'locations/_delete_form.html', layout: false, locals: { location: location } %>
+  </div>
+
   <div class="query-result">
-    <a href="../output.csv" download="<%=location.zip%>.csv">Download Your CSV for CHIRP!</a>
+    <a href="../tmp/<%= location.zip %>_<%= current_user.name %>.csv" >Download Your CSV for CHIRP!</a>
   </div>
 </div>
 
